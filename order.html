@@ -29,8 +29,38 @@
 
 
 
-<h3>Order</h3>
-    <form method="post" action="send_email.php">
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+
+            var name = encodeURIComponent(document.getElementById('name').value);
+            var email = encodeURIComponent(document.getElementById('email').value);
+            var category = encodeURIComponent(document.getElementById('category').value);
+            var priority = encodeURIComponent(document.querySelector('input[name="priority"]:checked').value);
+            var copy = encodeURIComponent(document.getElementById('copy').checked ? "Yes" : "No");
+            var human = encodeURIComponent(document.getElementById('human').checked ? "Yes" : "No");
+            var message = encodeURIComponent(document.getElementById('message').value);
+
+            var subject = "New Order Form Submission";
+            var body = `
+                Name: ${name}
+                Email: ${email}
+                Category: ${category}
+                Priority: ${priority}
+                Copy to Email: ${copy}
+                I am a Human: ${human}
+                Message: ${message}
+            `.replace(/\n/g, '%0D%0A'); // Encode new lines for mailto
+
+            var mailtoLink = `mailto:alfie.terry1@mail.com?subject=${subject}&body=${body}`;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</head>
+<body>
+    <h3>Order</h3>
+    <form onsubmit="sendEmail(event)">
         <div class="row gtr-uniform">
             <div class="col-6 col-12-xsmall">
                 <input type="text" name="name" id="name" placeholder="Name" required />
@@ -42,23 +72,23 @@
             <div class="col-12">
                 <select name="category" id="category" required>
                     <option value="">- Category -</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="polishing">Polishing</option>
-                    <option value="setup">Setup</option>
-                    <option value="other">Other</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Polishing">Polishing</option>
+                    <option value="Setup">Setup</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <!-- Break -->
             <div class="col-4 col-12-small">
-                <input type="radio" id="priority-low" name="priority" value="low" checked>
+                <input type="radio" id="priority-low" name="priority" value="Low" checked>
                 <label for="priority-low">Low</label>
             </div>
             <div class="col-4 col-12-small">
-                <input type="radio" id="priority-normal" name="priority" value="normal">
+                <input type="radio" id="priority-normal" name="priority" value="Normal">
                 <label for="priority-normal">Normal</label>
             </div>
             <div class="col-4 col-12-small">
-                <input type="radio" id="priority-high" name="priority" value="high">
+                <input type="radio" id="priority-high" name="priority" value="High">
                 <label for="priority-high">High</label>
             </div>
             <!-- Break -->
