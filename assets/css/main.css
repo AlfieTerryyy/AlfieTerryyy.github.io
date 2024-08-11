@@ -2080,6 +2080,7 @@ button:disabled,
   background: none;
   cursor: pointer;
   transition: left 0.5s ease;
+  color: #4d6bbf;
 }
 
 #sidebar .toggle:before {
@@ -2094,7 +2095,7 @@ button:disabled,
   line-height: inherit;
   content: '\f0c9'; /* Menu icon */
   text-indent: 0;
-  color: #ffffff; /* Ensuring visibility */
+  color: #4d6bbf;
 }
 
 #sidebar.inactive {
