@@ -155,20 +155,28 @@ p {
   margin: 0 0 2em 0;
 }
 
+h/* General heading styles */
 h1, h2, h3, h4, h5, h6 {
-  color: #3d4449;
+  color: #3d4449; /* Default color for h1, h2, h3, h6 */
   font-family: "Roboto Slab", serif;
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0;
 }
 
+/* Specific color adjustments for h4 and h5 */
+h4, h5 {
+  color: #ffffff; /* White text for h4 and h5 */
+}
+
+/* Link colors inherit from their respective headers */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: inherit;
   text-decoration: none;
   border-bottom: 0;
 }
 
+/* Font sizes */
 h1 {
   font-size: 4em;
   margin: 0 0 0.5em 0;
@@ -195,6 +203,7 @@ h6 {
   font-size: 0.7em;
 }
 
+/* Responsive adjustments */
 @media screen and (max-width: 1680px) {
   h1 {
     font-size: 3.5em;
@@ -1550,8 +1559,8 @@ button,
   background-color: transparent;
   border-radius: 0.375em;
   border: 0;
-  box-shadow: inset 0 0 0 2px #f56a6a;
-  color: #f56a6a !important;
+  box-shadow: inset 0 0 0 2px #4d6bbf;
+  color: #4d6bbf !important;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto Slab", serif;
@@ -1572,7 +1581,7 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-  background-color: rgba(245, 106, 106, 0.05);
+  background-color: rgba(77, 107, 191, 0.05);
 }
 
 input[type="submit"]:active,
@@ -1580,7 +1589,7 @@ input[type="reset"]:active,
 input[type="button"]:active,
 button:active,
 .button:active {
-  background-color: rgba(245, 106, 106, 0.15);
+  background-color: rgba(77, 107, 191, 0.15);
 }
 
 input[type="submit"].icon:before,
@@ -1656,6 +1665,7 @@ button:disabled,
   pointer-events: none;
   opacity: 0.25;
 }
+
 
 /* Mini Posts */
 .mini-posts article {
@@ -2351,7 +2361,7 @@ button:disabled,
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #4d6bbf; /* Updated */
+   color: #ffffff;
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   letter-spacing: 0.075em;
@@ -2362,16 +2372,18 @@ button:disabled,
 }
   #menu ul a, #menu ul span {
     border-bottom: 0;
-    color: inherit;
+    color: #ffffff;
+    text-decoration: none;
     cursor: pointer;
     display: block;
     font-size: 0.9em;
     padding: 0.625em 0;
   }
     #menu ul a:hover, #menu ul span:hover {
-      color: #ffffff; /* Light color for contrast */
+      color: #4d6bbf;
     }
     #menu ul a.opener, #menu ul span.opener {
+       color: #ffdd57; 
       -moz-transition: color 0.2s ease-in-out;
       -webkit-transition: color 0.2s ease-in-out;
       -ms-transition: color 0.2s ease-in-out;
@@ -2428,7 +2440,11 @@ button:disabled,
   }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
       font-size: 0.8em;
+      color: #ffffff;
     }
+    #menu > ul > li > ul a:hover, #menu > ul > li > ul span:hover {
+    color: #4d6bbf; /* Ensure hover contrast in submenus as well */
+}
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0;
