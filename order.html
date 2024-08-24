@@ -9,7 +9,7 @@
     <meta name="author" content="Alfie Terry">
     <link rel="stylesheet" href="https://alfieterry.co.uk/assets/css/main.css" />
     <link rel="icon" type="image/x-icon" href="Logo3.ico">
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="is-preload">
 
@@ -31,18 +31,6 @@
             <!-- Content -->
             <section>
                 <script>
-                    function onClick(e) {
-                        e.preventDefault();
-                        grecaptcha.enterprise.ready(async () => {
-                            const token = await grecaptcha.enterprise.execute('6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5', { action: 'LOGIN' });
-                            // Do something with the token
-                        });
-                    }
-
-                    function onSubmit(token) {
-                    document.getElementById("demo-form").submit();
-                  }
-                    
                     function sendEmail(event) {
                         event.preventDefault();
 
@@ -97,16 +85,13 @@
                             <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
                         </div>
                         <!-- reCAPTCHA -->
-<button class="g-recaptcha"
-    data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"
-    data-callback='onSubmit'
-    data-action='submit'>
-  Submit
-</button>
+                        <div class="col-12">
+                            <div class="g-recaptcha" data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></div>
+                        </div>
                         <!-- Break -->
                         <div class="col-12">
                             <ul class="actions">
-                                <li><input type="submit" value="Send Message" class="primary" onclick="onClick(event)" /></li>
+                                <li><input type="submit" value="Send Message" class="primary" /></li>
                                 <li><input type="reset" value="Reset" /></li>
                             </ul>
                         </div>
