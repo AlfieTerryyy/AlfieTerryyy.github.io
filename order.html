@@ -9,7 +9,7 @@
     <meta name="author" content="Alfie Terry">
     <link rel="stylesheet" href="https://alfieterry.co.uk/assets/css/main.css" />
     <link rel="icon" type="image/x-icon" href="Logo3.ico">
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></script>
 </head>
 <body class="is-preload">
 
@@ -39,6 +39,10 @@
                         });
                     }
 
+                    function onSubmit(token) {
+                    document.getElementById("demo-form").submit();
+                  }
+                    
                     function sendEmail(event) {
                         event.preventDefault();
 
