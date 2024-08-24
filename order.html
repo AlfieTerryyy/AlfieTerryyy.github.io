@@ -97,9 +97,12 @@
                             <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
                         </div>
                         <!-- reCAPTCHA -->
-                        <div class="col-12">
-                            <div class="g-recaptcha" data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></div>
-                        </div>
+<button class="g-recaptcha"
+    data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"
+    data-callback='onSubmit'
+    data-action='submit'>
+  Submit
+</button>
                         <!-- Break -->
                         <div class="col-12">
                             <ul class="actions">
