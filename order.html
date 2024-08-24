@@ -9,168 +9,169 @@
     <meta name="author" content="Alfie Terry">
     <link rel="stylesheet" href="https://alfieterry.co.uk/assets/css/main.css" />
     <link rel="icon" type="image/x-icon" href="Logo3.ico">
-      <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></script>
 </head>
 <body class="is-preload">
 
 <!-- Wrapper -->
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
 
-                <!-- Header -->
-                <header id="header">
-                    <a href="index.html" class="logo">The <strong>Terrance</strong> Territory</a>
-                    <ul class="icons">
-                        <li><a href="https://github.com/AlfieTerryyy/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                    </ul>
-                </header>
+            <!-- Header -->
+            <header id="header">
+                <a href="index.html" class="logo">The <strong>Terrance</strong> Territory</a>
+                <ul class="icons">
+                    <li><a href="https://github.com/AlfieTerryyy/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                </ul>
+            </header>
 
-                <!-- Content -->
-                <section>
-                    <script>
-			  function onClick(e) {
-			    e.preventDefault();
-			    grecaptcha.enterprise.ready(async () => {
-			      const token = await grecaptcha.enterprise.execute('6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5', {action: 'LOGIN'});
-			    });
-			  }
+            <!-- Content -->
+            <section>
+                <script>
+                    function onClick(e) {
+                        e.preventDefault();
+                        grecaptcha.enterprise.ready(async () => {
+                            const token = await grecaptcha.enterprise.execute('6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5', { action: 'LOGIN' });
+                            // Do something with the token
+                        });
+                    }
 
-			    
-                        function sendEmail(event) {
-                            event.preventDefault();
+                    function sendEmail(event) {
+                        event.preventDefault();
 
-                            var name = encodeURIComponent(document.getElementById('name').value);
-                            var email = encodeURIComponent(document.getElementById('email').value);
-                            var category = encodeURIComponent(document.getElementById('category').value);
-                            var priority = encodeURIComponent(document.querySelector('input[name="priority"]:checked').value);
-                            var message = encodeURIComponent(document.getElementById('message').value);
+                        var name = encodeURIComponent(document.getElementById('name').value);
+                        var email = encodeURIComponent(document.getElementById('email').value);
+                        var category = encodeURIComponent(document.getElementById('category').value);
+                        var priority = encodeURIComponent(document.querySelector('input[name="priority"]:checked').value);
+                        var message = encodeURIComponent(document.getElementById('message').value);
 
-                            var subject = encodeURIComponent("New Order Form Submission");
-                            var body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ACategory: ${category}%0D%0APriority: ${priority}%0D%0AI am a Human: ${human}%0D%0AMessage: ${message}`;
+                        var subject = encodeURIComponent("New Order Form Submission");
+                        var body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ACategory: ${category}%0D%0APriority: ${priority}%0D%0AMessage: ${message}`;
 
-                            var mailtoLink = `mailto:alfie.terry1@mail.com?subject=${subject}&body=${body}`;
+                        var mailtoLink = `mailto:alfie.terry1@mail.com?subject=${subject}&body=${body}`;
 
-                            window.location.href = mailtoLink;
-                        }
-                    </script>
+                        window.location.href = mailtoLink;
+                    }
+                </script>
 
-                    <form action="https://formspree.io/f/xwpewdjk" method="POST">
-                        <div class="row gtr-uniform">
-                            <div class="col-6 col-12-xsmall">
-                                <input type="text" name="name" id="name" placeholder="Name" required />
-                            </div>
-                            <div class="col-6 col-12-xsmall">
-                                <input type="email" name="email" id="email" placeholder="Email" required />
-                            </div>
-                            <!-- Break -->
-                            <div class="col-12">
-                                <select name="category" id="category" required>
-                                    <option value="">- Category -</option>
-                                    <option value="Web Development">Web Development</option>
-                                    <option value="Polishing">Polishing</option>
-                                    <option value="Setup">Setup</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <!-- Break -->
-                            <div class="col-4 col-12-small">
-                                <input type="radio" id="priority-low" name="priority" value="Low" checked>
-                                <label for="priority-low">Low</label>
-                            </div>
-                            <div class="col-4 col-12-small">
-                                <input type="radio" id="priority-normal" name="priority" value="Normal">
-                                <label for="priority-normal">Normal</label>
-                            </div>
-                            <div class="col-4 col-12-small">
-                                <input type="radio" id="priority-high" name="priority" value="High">
-                                <label for="priority-high">High</label>
-                            </div>>
-                            <div class="col-12">
-                                <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
-                            </div>
-                            <!-- reCAPTCHA -->
-                            <div class="col-12">
-                                <div class="g-recaptcha" data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></div>
-                            </div>
-                            <!-- Break -->
-                            <div class="col-12">
-                                <ul class="actions">
-                                    <li><input type="submit" value="Send Message" class="primary" /></li>
-                                    <li><input type="reset" value="Reset" /></li>
-                                </ul>
-                            </div>
+                <form action="https://formspree.io/f/xwpewdjk" method="POST">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" placeholder="Name" required />
                         </div>
-                    </form>
-                </section>
-
-            </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
-                <!-- Search -->
-                <section id="search" class="alt">
-                    <form method="post" action="#">
-                        <input type="text" name="query" id="query" placeholder="Search" />
-                    </form>
-                </section>
-
-                <!-- Menu -->
-                <nav id="menu">
-                    <header class="major">
-                        <h2>Navigation</h2>
-                    </header>
-                    <ul>
-                        <li><a href="https://alfieterry.co.uk/index.html">Homepage</a></li>
-                        <li><a href="https://alfieterry.co.uk/order.html">Order</a></li>
-                        <li>
-                            <span class="opener">About</span>
-                            <ul>
-                                <li><a href="https://alfieterry.co.uk/about">About</a></li>
-                                <li><a href="https://alfieterry.co.uk/about/web">About My Website</a></li>
-                                <li><a href="https://alfieterry.co.uk/about/me">About Me</a></li>
-                                <li><a href="https://alfieterry.co.uk/about/skills">About My Skills</a></li>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="email" name="email" id="email" placeholder="Email" required />
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                            <select name="category" id="category" required>
+                                <option value="">- Category -</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Polishing">Polishing</option>
+                                <option value="Setup">Setup</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-4 col-12-small">
+                            <input type="radio" id="priority-low" name="priority" value="Low" checked>
+                            <label for="priority-low">Low</label>
+                        </div>
+                        <div class="col-4 col-12-small">
+                            <input type="radio" id="priority-normal" name="priority" value="Normal">
+                            <label for="priority-normal">Normal</label>
+                        </div>
+                        <div class="col-4 col-12-small">
+                            <input type="radio" id="priority-high" name="priority" value="High">
+                            <label for="priority-high">High</label>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                            <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
+                        </div>
+                        <!-- reCAPTCHA -->
+                        <div class="col-12">
+                            <div class="g-recaptcha" data-sitekey="6LcLJS4qAAAAAE3zxH_hVQUBQh6uLG3XUBx6weg5"></div>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message" class="primary" onclick="onClick(event)" /></li>
+                                <li><input type="reset" value="Reset" /></li>
                             </ul>
-                        </li>
-                    </ul>
-                </nav>
+                        </div>
+                    </div>
+                </form>
+            </section>
 
-                <!-- Get in Touch -->
-                <section>
-                    <header class="major">
-                        <h2>Get in touch</h2>
-                        <h4>Please Use my emails Below</h4>
-                    </header>
-                    <ul class="contact">
-                        <li class="icon solid fa-envelope">
-                            <h4>alfie.terry1@outlook.com</h4>
-                        </li>
-                        <li class="icon solid fa-envelope">
-                            <h4>talfie7243@gmail.com</h4>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Footer -->
-                <footer id="footer">
-                    <p class="copyright">&copy; Alfie Terry. All rights reserved.</p>
-                </footer>
-
-            </div>
         </div>
-
     </div>
 
-    <!-- Scripts -->
-    <script src="https://alfieterry.co.uk/assets/js/jquery.min.js"></script>
-    <script src="https://alfieterry.co.uk/assets/js/browser.min.js"></script>
-    <script src="https://alfieterry.co.uk/assets/js/breakpoints.min.js"></script>
-    <script src="https://alfieterry.co.uk/assets/js/util.js"></script>
-    <script src="https://alfieterry.co.uk/assets/js/main.js"></script>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="post" action="#">
+                    <input type="text" name="query" id="query" placeholder="Search" />
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Navigation</h2>
+                </header>
+                <ul>
+                    <li><a href="https://alfieterry.co.uk/index.html">Homepage</a></li>
+                    <li><a href="https://alfieterry.co.uk/order.html">Order</a></li>
+                    <li>
+                        <span class="opener">About</span>
+                        <ul>
+                            <li><a href="https://alfieterry.co.uk/about">About</a></li>
+                            <li><a href="https://alfieterry.co.uk/about/web">About My Website</a></li>
+                            <li><a href="https://alfieterry.co.uk/about/me">About Me</a></li>
+                            <li><a href="https://alfieterry.co.uk/about/skills">About My Skills</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Get in Touch -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                    <h4>Please Use my emails Below</h4>
+                </header>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope">
+                        <h4>alfie.terry1@outlook.com</h4>
+                    </li>
+                    <li class="icon solid fa-envelope">
+                        <h4>talfie7243@gmail.com</h4>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Alfie Terry. All rights reserved.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="https://alfieterry.co.uk/assets/js/jquery.min.js"></script>
+<script src="https://alfieterry.co.uk/assets/js/browser.min.js"></script>
+<script src="https://alfieterry.co.uk/assets/js/breakpoints.min.js"></script>
+<script src="https://alfieterry.co.uk/assets/js/util.js"></script>
+<script src="https://alfieterry.co.uk/assets/js/main.js"></script>
 
 </body>
 </html>
