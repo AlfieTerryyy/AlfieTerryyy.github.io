@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFAE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, textarea {
+            width: 300px;
+            margin: 10px;
+        }
+        textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+   <h1>PFAE</h1>
+    <h3>Encrypt/Decrypt Messages</h3>
+    <div>
+        <textarea id="message" placeholder="Enter your message"></textarea><br>
+        <button onclick="encryptMessage()">Encrypt</button>
+        <button onclick="decryptMessage()">Decrypt</button><br>
+        <textarea id="output" placeholder="Your result will appear here" readonly></textarea><br>
+    </div>
+    <script>
+        // Function to get the daily code based on the current date
+        function getDailyCode() {
+            const today = new Date();
+            const dateKey = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            const baseKey = 'SECRET';
+            const dateCode = dateKey.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+            return baseKey + dateCode;
+        }
+
+        // Function to perform the Vigenère cipher (polyalphabetic cipher)
+        function vigenereCipher(text, key, encrypt = true) {
+            let result = '';
+            key = key.toUpperCase();
+            let keyIndex = 0;
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char.match(/[a-zA-Z]/)) {
+                    let shift = key.charCodeAt(keyIndex % key.length) - 65;
+                    if (!encrypt) shift = -shift;
+                    let code = text.charCodeAt(i);
+                    if (char === char.toUpperCase()) {
+                        char = String.fromCharCode(((code - 65 + shift + 26) % 26) + 65);
+                    } else {
+                        char = String.fromCharCode(((code - 97 + shift + 26) % 26) + 97);
+                    }
+                    keyIndex++;
+                }
+                result += char;
+            }
+            return result;
+        }
+
+        // Encrypt the message using the daily key
+        function encryptMessage() {
+            const message = document.getElementById('message').value;
+            const dailyCode = getDailyCode();
+            const encryptedMessage = vigenereCipher(message, dailyCode, true);
+            document.getElementById('output').value = encryptedMessage;
+        }
+
+        // Decrypt the message using the daily key
+        function decryptMessage() {
+            const message = document.getElementById('message').value;
+            const dailyCode = getDailyCode();
+            const decryptedMessage = vigenereCipher(message, dailyCode, false);
+            document.getElementById('output').value = decryptedMessage;
+        }
+    </script>
+</body>
+</html>
